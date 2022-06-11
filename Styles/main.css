@@ -1,0 +1,184 @@
+:root {
+    --main-background-color: black;
+    --main-text-color: red;
+}
+
+body {
+    background-color: var(--main-background-color);
+    color: var(--main-text-color);
+    text-align: center;
+}
+
+
+.header{
+    color: red;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+#Top
+{
+    position: --webkit-sticky;
+    position: sticky;
+    top: 0px;
+    background-color: black;
+        transition: .75s;
+}
+
+#Top:hover
+{
+    background-color: red;
+        transition: .75s;
+    color: black;
+}
+
+/*------------1------------*/
+
+#bodyPara{
+    padding-top: 40px;
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 20px
+        
+}
+
+#bodyPara ul li{
+    color: red;
+    padding-left: 10px;
+    list-style-position: inside;
+    list-style-type: upper-roman;
+    margin: 10px;
+    text-align: left
+        
+}
+/*
+/Users/111244rfsf/Documents/Repositories/searsam1.github.io.2/resources/arrow-up-right-square-fill.svg*/
+
+#bodyPara ul li ul li{
+    color: white;
+    list-style-type: lower-roman;
+    text-align: left;
+    transition: .5s;
+
+}
+
+#bodyPara ul li ul li:hover{
+    color: red;
+    transition: 1s;
+    font-size: 22px;
+}
+
+/*------------2------------*/
+#bodyPara2{
+    padding-top: 40px;
+    color: skyblue;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 20px
+        
+}
+
+#bodyPara2 ul li{
+    color: cyan;
+    padding-left: 10px;
+    list-style-position: inside;
+    list-style-type: upper-roman;
+    margin: 10px;
+    text-align: left
+        
+}
+/*
+/Users/111244rfsf/Documents/Repositories/searsam1.github.io.2/resources/arrow-up-right-square-fill.svg*/
+
+#bodyPara2 ul li ul li{
+    color: white;
+    list-style-type: lower-roman;
+    text-align: left;
+    transition: .75s;
+
+}
+
+#bodyPara2 ul li ul li:hover{
+    color: cyan;
+    transition: 1s;
+    font-size: 22px;
+
+}
+
+/*------------3------------*/
+#bodyPara3{
+    padding-top: 40px;
+    color: red;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 20px
+        
+}
+
+#bodyPara3 ul li{
+    color: yellow;
+    padding-left: 10px;
+    list-style-position: inside;
+    list-style-type: upper-roman;
+    margin: 10px;
+    text-align: left
+        
+}
+/*
+/Users/111244rfsf/Documents/Repositories/searsam1.github.io.2/resources/arrow-up-right-square-fill.svg*/
+
+#bodyPara3 ul li ul li{
+    color: white;
+    list-style-type: lower-roman;
+    text-align: left;
+    transition: .75s;
+
+}
+
+#bodyPara3 ul li ul li:hover{
+    color: yellow;
+    transition: 1s;
+    font-size: 22px;
+
+}
+
+
+
+/*------------4------------*/
+#bodyPara4{
+    padding-top: 40px;
+    color: blueviolet;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 20px
+        
+}
+
+#bodyPara4 ul li{
+    color: blueviolet;
+    padding-left: 10px;
+    list-style-position: inside;
+    list-style-type: upper-roman;
+    margin: 10px;
+    text-align: left
+        
+}
+/*
+/Users/111244rfsf/Documents/Repositories/searsam1.github.io.2/resources/arrow-up-right-square-fill.svg*/
+
+#bodyPara4 ul li ul li{
+    color: white;
+    list-style-type: lower-roman;
+    text-align: left;
+    transition: .75s;
+
+}
+
+#bodyPara4 ul li ul li:hover{
+    color: blueviolet;
+    transition: 1s;
+    font-size: 22px;
+
+}
+
