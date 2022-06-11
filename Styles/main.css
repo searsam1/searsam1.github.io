@@ -66,7 +66,6 @@ body {
 #bodyPara ul li ul li:hover{
     color: red;
     transition: 1s;
-    font-size: 22px;
 }
 
 /*------------2------------*/
@@ -102,7 +101,6 @@ body {
 #bodyPara2 ul li ul li:hover{
     color: cyan;
     transition: 1s;
-    font-size: 22px;
 
 }
 
@@ -139,7 +137,6 @@ body {
 #bodyPara3 ul li ul li:hover{
     color: yellow;
     transition: 1s;
-    font-size: 22px;
 
 }
 
@@ -178,7 +175,6 @@ body {
 #bodyPara4 ul li ul li:hover{
     color: blueviolet;
     transition: 1s;
-    font-size: 22px;
 
 }
 
