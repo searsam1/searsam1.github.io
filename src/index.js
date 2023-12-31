@@ -1,32 +1,69 @@
-// Import Three.js
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-// Set up the scene, camera, and renderer.
+// Scene setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 50;
+
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Create a cube and add it to the scene.
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// OrbitControls setup
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
 
-// Position the camera
-camera.position.z = 5;
+// Handle window resize
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    controls.update();
+});
+
+// Create stars with random colors but with fewer stars and a bit more spread out
+const starGeometry = new THREE.BufferGeometry();
+const starVertices = [];
+const starColors = [];
+
+const starCount = 20000; // Reduced number of stars for less busyness
+for (let i = 0; i < starCount; i++) {
+    const x = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
+    const y = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
+    const z = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
+    starVertices.push(x, y, z);
+
+    const color = new THREE.Color(Math.random(), Math.random(), Math.random());
+    starColors.push(color.r, color.g, color.b);
+}
+
+starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
+
+const starMaterial = new THREE.PointsMaterial({
+    size: 0.05,
+    vertexColors: true
+});
+
+const stars = new THREE.Points(starGeometry, starMaterial);
+scene.add(stars);
+
+// Automatic rotation speed
+const rotationSpeed = 0.001;
 
 // Animation loop
 function animate() {
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 
-  // Rotate the cube
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
+    // Automatic rotation
+    stars.rotation.x += rotationSpeed;
+    stars.rotation.y += rotationSpeed;
 
-  // Render the scene
-  renderer.render(scene, camera);
+    controls.update();
+
+    renderer.render(scene, camera);
 }
 
 animate();

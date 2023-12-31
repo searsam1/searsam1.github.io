@@ -1,0 +1,98 @@
+#info {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    display: block;
+    color: white;
+    font-size: larger;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    font-family: 'Nova Square', sans-serif;
+    font-size: larger;
+}
+
+.tools {
+    color: beige;
+    border-radius: 10px;
+    border: 1px solid red;
+}
+
+.tools > h2 {
+    color: rgb(255, 0, 0);
+}
+
+.tools li:before {
+    content: "> ";
+}
+
+.contact > h2 {
+    color: rgb(0, 255, 174);
+}
+.who-i-am > h2 {
+    color: beige;
+}
+
+.who-i-am {
+    border: 1px solid blue;
+    border-radius: 10px ;
+    font-family: 'Nova Square', sans-serif;
+}
+
+.contact {
+    color: beige;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 255, 174);
+    
+}
+
+.contact li:before {
+    content: "";
+}
+
+h1.display-2 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    cursor: none; /* Hide the default cursor */
+}
+
+#cursor-highlight {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px; /* Offset the div by half its width and height to center it around the cursor */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid orange; /* Give it a border */
+    pointer-events: none; /* Ensure it doesn't interfere with other mouse events */
+    z-index: 10000; /* Ensure it's above other items on the page */
+}
+.cursor-glow {
+    box-shadow: 0 0 10px 10px orange; /* Adjust the color and size of the glow as needed */
+}
+
+.contact a {
+    cursor: none;
+}
+
+.trail {
+    position: absolute;
+    width: 20px; /* Trail particle size */
+    height: 20px; /* Trail particle size */
+    border-radius: 100%; /* Make the particles circular */
+    background: rgba(255, 3, 3, 0.248); /* Trail color */
+    pointer-events: none; /* Ignore pointer events */
+    opacity: 1; /* Start fully visible */
+    z-index: 9999; /* Ensure it's above other items on the page */
+}
