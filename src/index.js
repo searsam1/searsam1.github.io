@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+// Detect if the user is on a mobile device
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
 // Scene setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -15,12 +18,17 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
 
+// Responsive adjustments for mobile devices
+const starCount = isMobile ? 5000 : 20000;  // Less stars on mobile for performance
+const starSize = isMobile ? 0.07 : 0.05;    // Slightly larger stars on mobile for visibility
+
 // Handle window resize
 window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     controls.update();
+    updateTextSize(); // Update text size when window resizes
 });
 
 // Create stars with random colors but with fewer stars and a bit more spread out
@@ -28,11 +36,10 @@ const starGeometry = new THREE.BufferGeometry();
 const starVertices = [];
 const starColors = [];
 
-const starCount = 20000; // Reduced number of stars for less busyness
 for (let i = 0; i < starCount; i++) {
-    const x = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
-    const y = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
-    const z = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
+    const x = THREE.MathUtils.randFloatSpread(3000); // Spread out
+    const y = THREE.MathUtils.randFloatSpread(3000);
+    const z = THREE.MathUtils.randFloatSpread(3000);
     starVertices.push(x, y, z);
 
     const color = new THREE.Color(Math.random(), Math.random(), Math.random());
@@ -43,30 +50,39 @@ starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVerti
 starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
 
 const starMaterial = new THREE.PointsMaterial({
-    size: 0.05,
+    size: starSize,
     vertexColors: true
 });
 
 const stars = new THREE.Points(starGeometry, starMaterial);
 scene.add(stars);
 
-// Automatic rotation speed
-const rotationSpeed = 0.001;
-
 // Animation loop
 function animate() {
     requestAnimationFrame(animate);
 
-    // Automatic rotation
-    stars.rotation.x += rotationSpeed;
-    stars.rotation.y += rotationSpeed;
+    // Rotate stars
+    stars.rotation.x += 0.001;
+    stars.rotation.y += 0.001;
 
     controls.update();
-
     renderer.render(scene, camera);
 }
 
 animate();
+
+// Resize text based on window size for better mobile visibility
+function updateTextSize() {
+    const width = window.innerWidth;
+    if (width < 768) { // Example breakpoint for mobile devices
+        document.body.style.fontSize = '18px'; // Larger text for small screens
+    } else {
+        document.body.style.fontSize = '16px'; // Default text size for larger screens
+    }
+}
+
+updateTextSize(); // Initialize text size based on current window size
+
 
 document.addEventListener('mousemove', function(e) {
     const highlight = document.getElementById('cursor-highlight');
