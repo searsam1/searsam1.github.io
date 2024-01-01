@@ -1,3 +1,31 @@
+/* Larger phones might benefit from a slight size increase */
+@media (min-width: 375px) {
+    body {
+      font-size: 2.5em; /* slightly larger for better readability */
+    }
+  }
+  
+  /* Tablets */
+  @media (min-width: 768px) {
+    body {
+      font-size: 2em; /* increase as needed */
+    }
+  }
+  
+  /* Small laptops/desktops */
+  @media (min-width: 992px) {
+    body {
+      font-size: 20px; /* adjust based on design/content needs */
+    }
+  }
+  
+  /* Larger desktops */
+  @media (min-width: 1200px) {
+    body {
+      font-size: 20px; /* may keep the same or increase slightly if it fits the design */
+    }
+  }
+
 #info {
     position: absolute;
     top: 10px;
@@ -24,7 +52,7 @@ li {
     border: 1px solid red;
 }
 
-.tools > h2 {
+.tools>h2 {
     color: rgb(255, 0, 0);
 }
 
@@ -32,16 +60,17 @@ li {
     content: "> ";
 }
 
-.contact > h2 {
+.contact>h2 {
     color: rgb(0, 255, 174);
 }
-.who-i-am > h2 {
+
+.who-i-am>h2 {
     color: beige;
 }
 
 .who-i-am {
     border: 1px solid blue;
-    border-radius: 10px ;
+    border-radius: 10px;
     font-family: 'Nova Square', sans-serif;
 }
 
@@ -49,7 +78,7 @@ li {
     color: beige;
     border-radius: 10px;
     border: 1px solid rgb(0, 255, 174);
-    
+
 }
 
 .contact li:before {
@@ -65,21 +94,29 @@ h2 {
 }
 
 body {
-    cursor: none; /* Hide the default cursor */
+    cursor: none;
+    /* Hide the default cursor */
 }
 
 #cursor-highlight {
     position: absolute;
     width: 20px;
     height: 20px;
-    margin: -10px 0 0 -10px; /* Offset the div by half its width and height to center it around the cursor */
-    border-radius: 50%; /* Make it circular */
-    border: 2px solid orange; /* Give it a border */
-    pointer-events: none; /* Ensure it doesn't interfere with other mouse events */
-    z-index: 10000; /* Ensure it's above other items on the page */
+    margin: -10px 0 0 -10px;
+    /* Offset the div by half its width and height to center it around the cursor */
+    border-radius: 50%;
+    /* Make it circular */
+    border: 2px solid orange;
+    /* Give it a border */
+    pointer-events: none;
+    /* Ensure it doesn't interfere with other mouse events */
+    z-index: 10000;
+    /* Ensure it's above other items on the page */
 }
+
 .cursor-glow {
-    box-shadow: 0 0 10px 10px orange; /* Adjust the color and size of the glow as needed */
+    box-shadow: 0 0 10px 10px orange;
+    /* Adjust the color and size of the glow as needed */
 }
 
 .contact a {
@@ -88,11 +125,19 @@ body {
 
 .trail {
     position: absolute;
-    width: 20px; /* Trail particle size */
-    height: 20px; /* Trail particle size */
-    border-radius: 100%; /* Make the particles circular */
-    background: rgba(255, 3, 3, 0.248); /* Trail color */
-    pointer-events: none; /* Ignore pointer events */
-    opacity: 1; /* Start fully visible */
-    z-index: 9999; /* Ensure it's above other items on the page */
+    width: 20px;
+    /* Trail particle size */
+    height: 20px;
+    /* Trail particle size */
+    border-radius: 100%;
+    /* Make the particles circular */
+    background: rgba(255, 3, 3, 0.248);
+    /* Trail color */
+    pointer-events: none;
+    /* Ignore pointer events */
+    opacity: 1;
+    /* Start fully visible */
+    z-index: 9999;
+    /* Ensure it's above other items on the page */
 }
+
