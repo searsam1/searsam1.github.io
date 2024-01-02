@@ -34,7 +34,7 @@ const starGeometry = new THREE.BufferGeometry();
 const starVertices = [];
 const starColors = [];
 
-const starCount = isMobile ? 5000 : 20000; // fewer stars on mobile
+const starCount = isMobile ? 6000 : 20000; // fewer stars on mobile
 for (let i = 0; i < starCount; i++) {
     const x = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
     const y = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
@@ -51,15 +51,18 @@ starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 
 
 
 // Set star size
-const starSize = isMobile ? 1 : 0.05; // larger size for mobile, smaller for desktop
+const starSize = isMobile ? 5: 3; // larger size for mobile, smaller for desktop
+const starTexture = new THREE.TextureLoader().load('star_texture5.png'); // Load the texture
 
 
 const starMaterial = new THREE.PointsMaterial({
     size: starSize,
-    vertexColors: true
+    map: starTexture,
+    transparent: true, 
+    vertexColors: true,
 });
-
 const stars = new THREE.Points(starGeometry, starMaterial);
+
 scene.add(stars);
 
 // Automatic rotation speed
