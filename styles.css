@@ -1,31 +1,3 @@
-/* Larger phones might benefit from a slight size increase */
-@media (min-width: 375px) {
-    body {
-      font-size: 2.5em; /* slightly larger for better readability */
-    }
-  }
-  
-  /* Tablets */
-  @media (min-width: 768px) {
-    body {
-      font-size: 2.5em; /* increase as needed */
-    }
-  }
-  
-  /* Small laptops/desktops */
-  @media (min-width: 992px) {
-    body {
-      font-size: 20px; /* adjust based on design/content needs */
-    }
-  }
-  
-  /* Larger desktops */
-  @media (min-width: 1200px) {
-    body {
-      font-size: 20px; /* may keep the same or increase slightly if it fits the design */
-    }
-  }
-
 #info {
     position: absolute;
     top: 10px;
@@ -34,7 +6,6 @@
     z-index: 100;
     display: block;
     color: white;
-    font-size: larger;
 }
 
 ul {
@@ -43,7 +14,6 @@ ul {
 
 li {
     font-family: 'Nova Square', sans-serif;
-    font-size: larger;
 }
 
 .tools {
@@ -141,3 +111,15 @@ body {
     /* Ensure it's above other items on the page */
 }
 
+#myCanvas {
+    position: fixed;
+    /* Fixed position */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Full viewport height */
+    z-index: -1;
+    /* Behind everything */
+}
