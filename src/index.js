@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+// Detect if the user is on a mobile device
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
 // Scene setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -31,7 +34,7 @@ const starGeometry = new THREE.BufferGeometry();
 const starVertices = [];
 const starColors = [];
 
-const starCount = 20000; // Reduced number of stars for less busyness
+const starCount = isMobile ? 5000 : 20000; // fewer stars on mobile
 for (let i = 0; i < starCount; i++) {
     const x = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
     const y = THREE.MathUtils.randFloatSpread(3000); // Slightly more spread out
@@ -45,8 +48,14 @@ for (let i = 0; i < starCount; i++) {
 starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
 starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
 
+
+
+// Set star size
+const starSize = isMobile ? 5 : 0.05; // larger size for mobile, smaller for desktop
+
+
 const starMaterial = new THREE.PointsMaterial({
-    size: 0.05,
+    size: starSize,
     vertexColors: true
 });
 
