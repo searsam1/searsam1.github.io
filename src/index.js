@@ -51,7 +51,7 @@ starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 
 
 
 // Set star size
-const starSize = isMobile ? 5 : 0.05; // larger size for mobile, smaller for desktop
+const starSize = isMobile ? 1 : 0.05; // larger size for mobile, smaller for desktop
 
 
 const starMaterial = new THREE.PointsMaterial({
