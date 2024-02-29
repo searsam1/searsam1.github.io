@@ -1,10 +1,7 @@
 // vite.config.js
-import { defineConfig } from 'vite';
-
-export default defineConfig({
+export default {
   build: {
-    outDir: 'docs', // Set the output directory to 'docs'
-    // Using docs instead of dist for github deploy
+    outDir: 'docs/main',
   },
-  // ... include any other configurations you need here ...
-});
+}
+
